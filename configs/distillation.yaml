@@ -1,0 +1,39 @@
+experiment:
+  name: E6_distillation
+  seed: 42
+  description: "Cross-architecture knowledge distillation from high-capacity teacher to edge student"
+
+distillation:
+  teacher:
+    model_name: TBD
+    checkpoint: TBD
+    architecture: conformer_large
+    precision: fp32
+    freeze: true
+  student:
+    model_name: TBD
+    architecture: streaming_conformer_small
+    encoder_dim: 144
+    encoder_layers: 8
+    num_heads: 4
+  loss_weights:
+    alpha_ce: 0.4
+    alpha_ctc: 0.3
+    alpha_kd: 0.3
+    temperature: 2.0
+  feature_matching:
+    enabled: true
+    weight: 0.1
+    layer_mapping:
+      student_layer_4: teacher_layer_8
+      student_layer_8: teacher_layer_16
+
+training:
+  epochs: 30
+  batch_size: 16
+  learning_rate: 3.0e-4
+  warmup_steps: 2000
+
+dataset:
+  name: common_voice_swahili
+  manifest_dir: data/manifests

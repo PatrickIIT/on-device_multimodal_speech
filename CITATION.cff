@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the repository and the eventual research publication."
+title: "Hardware-Aware Compression of Streaming Speech Models for Low-Resource Android Devices"
+type: software
+authors:
+  - family-names: "IIT"
+    given-names: "Patrick"
+    # TODO: Add author affiliation, contact email, and ORCID once formalized
+repository-code: "https://github.com/PatrickIIT/on-device_multimodal_speech"
+keywords:
+  - "automatic-speech-recognition"
+  - "streaming-asr"
+  - "model-compression"
+  - "quantization"
+  - "structured-pruning"
+  - "knowledge-distillation"
+  - "swahili"
+  - "on-device-ml"
+  - "android"
+  - "samsung-galaxy-a13"
+license: "Apache-2.0"
+version: "0.1.0"
+date-released: "2026-09-21"
+# TODO: Update with journal/conference citation details upon publication
+# preferred-citation:
+#   type: article
+#   title: "Hardware-Aware Compression of Streaming Speech Models for Low-Resource Android Devices"
+#   authors:
+#     - family-names: "IIT"
+#       given-names: "Patrick"
+#   year: 2026

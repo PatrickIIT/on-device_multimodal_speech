@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "on_device_multimodal_speech"
+version = "0.1.0"
+description = "Hardware-Aware Compression of Streaming Speech Models for Low-Resource Android Devices"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Patrick IIT" }
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "pyyaml>=6.0",
+    "soundfile>=0.12.1",
+    "librosa>=0.10.0",
+    "torch>=2.1.0",
+    "torchaudio>=2.1.0",
+    "onnx>=1.14.0",
+    "onnxruntime>=1.16.0",
+    "psutil>=5.9.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["benchmarks*", "compression*", "streaming*", "training*", "export*", "scripts*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+pythonpath = ["."]

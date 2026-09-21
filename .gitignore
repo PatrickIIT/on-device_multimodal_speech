@@ -1,0 +1,107 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# IDEs & editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Datasets (Do NOT commit audio or dataset folders)
+data/raw/
+data/processed/
+data/manifests/*.tsv
+data/manifests/*.csv
+data/splits/*.tsv
+data/splits/*.csv
+
+# Audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.aac
+*.opus
+
+# Model checkpoints & weights
+models/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# Exported model artifacts
+*.onnx
+*.onnx_data
+*.pte
+*.tflite
+*.ort
+
+# Experimental results (raw data and generated dumps)
+results/raw/*.json
+results/raw/*.csv
+results/figures/*.png
+results/figures/*.pdf
+results/figures/*.svg
+
+# Logging & profiling
+logs/
+*.log
+runs/
+wandb/
+.tensorboard/
+profile/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Android build outputs & local properties
+android/**/build/
+android/**/.cxx/
+android/**/local.properties
+android/**/*.apk
+android/**/*.aab

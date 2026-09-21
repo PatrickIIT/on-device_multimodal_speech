@@ -1,0 +1,33 @@
+experiment:
+  name: E2_int8
+  seed: 42
+  description: "Quantization study evaluating FP16, INT8, and INT4 compression for edge ASR"
+
+quantization:
+  precision: int8 # Options: fp16, int8, int4
+  method: ptq    # Options: ptq (Post-Training Quantization), qat (Quantization-Aware Training)
+  calibration:
+    num_samples: 256
+    dataset: common_voice_swahili
+    split: dev
+  int8_config:
+    weight_type: qint8
+    activation_type: quint8
+    symmetric: true
+    per_channel: true
+  int4_config:
+    group_size: 32
+    symmetric: true
+  target_modules:
+    - Linear
+    - Conv1d
+    - MultiheadAttention
+
+model:
+  baseline_checkpoint: TBD
+  architecture: streaming_conformer
+  export_format: onnx
+
+hardware:
+  device: samsung_a13
+  runtime: onnxruntime

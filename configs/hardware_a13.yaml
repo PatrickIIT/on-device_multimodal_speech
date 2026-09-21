@@ -1,0 +1,32 @@
+device:
+  name: Samsung Galaxy A13
+  model_id: SM-A135F
+  soc: Samsung Exynos 850
+  cpu_topology:
+    architecture: ARMv8.2-A (64-bit)
+    cores: 8
+    clusters:
+      - type: Cortex-A55
+        count: 8
+        max_freq_mhz: 2000
+  gpu: ARM Mali-G52 MP1
+  npu: none
+  total_ram_mb: 3072 # Variant available in 3GB or 4GB
+
+runtime:
+  primary: sherpa-onnx
+  secondary: onnxruntime-mobile
+  fallback: executorch
+
+constraints:
+  max_ram_mb: TBD          # Empirically measured threshold to avoid LMK kills
+  max_latency_ms: TBD      # Per-chunk real-time budget threshold
+  max_energy_wh: TBD       # Maximum acceptable battery drain rate
+  max_wer_degradation: TBD # Maximum acceptable relative WER drop
+
+measurement:
+  warmup_runs: 10
+  benchmark_runs: 50
+  cool_down_seconds: 5
+  record_thermal: true
+  record_power: true

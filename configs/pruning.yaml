@@ -1,0 +1,32 @@
+experiment:
+  name: E4_pruning
+  seed: 42
+  description: "Structured pruning across channels, attention heads, and feed-forward layers"
+
+pruning:
+  type: structured
+  granularity: channel # Options: channel, head, layer, block
+  sparsity_targets:
+    - 0.20
+    - 0.40
+    - 0.60
+    - 0.80
+  importance_criterion: l1_norm # Options: l1_norm, l2_norm, taylor, gradient_magnitude
+  target_layers:
+    - encoder.layers.*.conv
+    - encoder.layers.*.feed_forward
+
+fine_tuning:
+  enabled: true
+  epochs: 10
+  learning_rate: 1.0e-4
+  optimizer: adamw
+  weight_decay: 0.01
+
+model:
+  baseline_checkpoint: TBD
+  architecture: streaming_conformer
+
+dataset:
+  name: common_voice_swahili
+  manifest_dir: data/manifests
