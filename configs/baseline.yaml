@@ -1,0 +1,43 @@
+experiment:
+  name: E0_baseline
+  seed: 42
+  description: "Uncompressed FP32 reference model evaluation on Swahili streaming ASR"
+
+dataset:
+  name: common_voice_swahili
+  language: sw
+  sample_rate: 16000
+  manifest_dir: data/manifests
+  split_train: cv_sw_train.tsv
+  split_validation: cv_sw_dev.tsv
+  split_test: cv_sw_test.tsv
+
+model:
+  name: TBD
+  architecture: streaming_conformer
+  precision: fp32
+  checkpoint_path: null
+  vocab_size: TBD
+  encoder_dim: 256
+  encoder_layers: 12
+  num_heads: 4
+
+streaming:
+  enabled: true
+  chunk_ms: 400
+  lookahead_ms: 0
+  sample_rate: 16000
+
+evaluation:
+  batch_size: 1
+  metrics:
+    - wer
+    - cer
+    - latency
+    - rtf
+    - ram
+
+hardware:
+  device: samsung_a13
+  target_os: android
+  execution_provider: cpu

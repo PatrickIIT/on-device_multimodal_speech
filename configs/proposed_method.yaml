@@ -1,0 +1,45 @@
+experiment:
+  name: E10_hardware_aware
+  seed: 42
+  description: "Hardware-aware candidate configuration selection under explicit mobile constraints"
+
+selection_framework:
+  status: "research_formulation_under_investigation"
+  strategy: constrained_pareto_search # Options: constrained_pareto_search, weighted_sum, evolutionary
+
+objective:
+  formulation: "J = WER + lambda_latency * Latency_norm + lambda_ram * RAM_norm + lambda_energy * Energy_norm"
+  weights:
+    lambda_latency: 0.35
+    lambda_ram: 0.35
+    lambda_energy: 0.30
+
+hardware_constraints:
+  device: samsung_a13
+  max_ram_mb: 250.0          # Hard cap on model + runtime buffer memory
+  max_latency_ms: 150.0      # Hard cap on P95 chunk execution latency
+  max_wer_degradation: 0.05  # Relative WER increase allowed over uncompressed FP32 baseline
+
+search_space:
+  precisions:
+    - fp32
+    - fp16
+    - int8
+    - int4
+  sparsity_levels:
+    - 0.00
+    - 0.20
+    - 0.40
+    - 0.60
+    - 0.80
+  chunk_sizes_ms:
+    - 100
+    - 200
+    - 400
+    - 800
+    - 1000
+
+dataset:
+  eval_dataset: common_voice_swahili
+  test_split: cv_sw_test.tsv
+  cross_dataset: fleurs_swahili

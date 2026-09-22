@@ -1,4 +1,3 @@
-# on-device_multimodal_speech
 # Hardware-Aware Compression of Streaming Speech Models for Low-Resource Android Devices
 
 ## Status
@@ -280,3 +279,4 @@ on-device_multimodal_speech/
   publisher = {GitHub},
   howpublished = {\url{https://github.com/PatrickIIT/on-device_multimodal_speech}}
 }
+```

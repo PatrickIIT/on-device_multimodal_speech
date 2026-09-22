@@ -1,0 +1,24 @@
+# Core scientific computing & data
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+pyyaml>=6.0
+
+# Audio processing
+soundfile>=0.12.1
+librosa>=0.10.0
+
+# Deep learning & inference runtimes
+torch>=2.1.0
+torchaudio>=2.1.0
+onnx>=1.14.0
+onnxruntime>=1.16.0
+
+# Metrics & benchmarking utilities
+psutil>=5.9.0
+tqdm>=4.65.0
+jiwer>=3.0.0
+
+# Testing & code quality
+pytest>=7.4.0
+pytest-cov>=4.1.0
